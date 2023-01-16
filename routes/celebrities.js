@@ -10,7 +10,7 @@ router.get('/', async (req, res, next) => {
     console.log('These are your celebrities:', celebrities)
     res.render('celebrities/celebrities', { celebrities })
   } catch (error) {
-    
+    next(error)
   }
 })
 
