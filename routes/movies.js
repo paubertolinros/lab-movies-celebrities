@@ -7,7 +7,6 @@ const Celebrity = require('../models/Celebrity.model')
 router.get('/create', async (req, res, next) => {
   try {
     const allArtists = await Celebrity.find({});
-    console.log(allArtists)
     res.render('movies/new-movie', { allArtists });
   } catch (error) {
     next(error)
