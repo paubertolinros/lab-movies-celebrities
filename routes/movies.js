@@ -2,6 +2,18 @@ const router = require("express").Router();
 const Movie = require('../models/Movie.model');
 const Celebrity = require('../models/Celebrity.model')
 
+/* GET Show all movies */
+/* ROUTE /movies/ */
+router.get('/', async (req, res, next) => {
+  try {
+    const allMovies = await Movie.find({})
+    res.render('movies/movies', { allMovies })
+  } catch (error) {
+    next(error)
+  }
+});
+
+
 /* GET Show a form to create movie */
 /* ROUTE /movies/create/ */
 router.get('/create', async (req, res, next) => {
