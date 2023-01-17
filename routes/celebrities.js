@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const Celebrity = require('../models/Celebrity.model')
+const Celebrity = require('../models/Celebrity.model');
 
 
 /* GET Show all celebrities */
