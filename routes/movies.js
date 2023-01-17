@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const Movie = require('../models/Movie.model');
-const Celebrity = require('../models/Celebrity.model')
+const Celebrity = require('../models/Celebrity.model');
 
 /* GET Show all movies */
 /* ROUTE /movies/ */
@@ -35,6 +35,18 @@ router.post('/create', async (req, res, next) => {
   } catch (error) {
     next(error)
   }
-})
+});
+
+/* GET Show movie detail */
+/* ROUTE /movies/:id */
+router.get('/:movieId', async (req, res, next) => {
+  const { movieId } = req.params;
+  try {
+    const movieDetails = await Movie.findById(movieId).populate('cast');
+    res.render('movies/movie-details', { movieDetails })
+  } catch (error) {
+    next(error)
+  }
+});
 
 module.exports = router;
