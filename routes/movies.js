@@ -71,7 +71,7 @@ router.post('/edit/:movieId', async (req, res, next) => {
   const { title, genre, plot, cast } = req.body;
   try {
     await Movie.findByIdAndUpdate(movieId, {title, genre, plot, cast});
-    res.redirect('/movies')
+    res.redirect(`/movies/${movieId}`)
   } catch (error) {
     next(error)
   }
