@@ -38,8 +38,8 @@ router.post('/create', async (req, res, next) => {
 });
 
 /* POST delete specific movie */
-/* ROUTE /movies/:id/delete */
-router.post('/:movieId/delete', async (req, res, next) => {
+/* ROUTE /movies/delete/:id */
+router.post('/delete/:movieId', async (req, res, next) => {
   const { movieId } = req.params;
   try {
     await Movie.findByIdAndRemove(movieId);
@@ -50,11 +50,11 @@ router.post('/:movieId/delete', async (req, res, next) => {
 });
 
 /* GET Show a form to edit a movie */
-/* ROUTE /movies/:id/edit */
-router.get('/:movieId/edit', async (req, res, next) => {
+/* ROUTE /movies/edit/:id */
+router.get('/edit/:movieId', async (req, res, next) => {
   const { movieId } = req.params;
   try {
-    const movie = await Movie.findById(movieId).populate
+    const movie = await Movie.findById(movieId).populate("cast")
     const celebrity = await Celebrity.find({ movieId });
     console.log('This is the movie:', movie)
     console.log('These are the celebreties:', celebrity)
@@ -65,8 +65,8 @@ router.get('/:movieId/edit', async (req, res, next) => {
 });
 
 /* POST get data from form --> update specific movie*/
-/* ROUTE /movies/:id/ */
-router.post('/:movieId', async (req, res, next) => {
+/* ROUTE /movies/edit/:id/ */
+router.post('/edit/:movieId', async (req, res, next) => {
   const { movieId } = req.params;
   const { title, genre, plot, cast } = req.body;
   try {
