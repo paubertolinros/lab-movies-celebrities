@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const movieSchema = new Schema({
   title: {
     type: String,
-    required: [true, 'Title is mandatory. Please add a title']
+    required: [true, 'Title is mandatory. Please add a title'],
   },
   genre: {
     type: String,

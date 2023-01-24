@@ -10,7 +10,7 @@
       <option value="drama">Drama</option>
       <option value="fantasy">Fantasy</option>
       <option value="horror">Horror</option>
-      <option value="Mystery">Mystery</option>
+      <option value="mystery">Mystery</option>
       <option value="romance">Romance</option>
       <option value="thriller">Thriller</option>
       <option value="western">Western</option>
@@ -22,8 +22,7 @@
     slum in New York's Lower East Side, through his rise to bootlegger and then Mafia boss -- a journey marked by violence,
     betrayal and remorse.</textarea>
     <label> Cast </label>
-    <select name="cast" id="">
-      <option value="" disabled selected>Choose an artist</option>
+    <select name="cast" multiple>
       {{#each allArtists}}
       <option value={{this._id}}>{{this.name}}</option>
       {{/each}}

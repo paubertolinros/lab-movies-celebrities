@@ -1,7 +1,7 @@
 <h2> Edit movie </h2>
 <form method="POST" action="/movies/edit/{{movie._id}}">
   <label> Title </label>
-  <input type="text" name="title" value={{movie.title}} required />
+  <input type="text" name="title" value="{{movie.title}}" required />
   <label> Genre </label>
   <select name="genre">
     <option value="{{movie.genre}}">{{movie.genre}}</option>
@@ -10,7 +10,7 @@
     <option value="drama">Drama</option>
     <option value="fantasy">Fantasy</option>
     <option value="horror">Horror</option>
-    <option value="Mystery">Mystery</option>
+    <option value="mystery">Mystery</option>
     <option value="romance">Romance</option>
     <option value="thriller">Thriller</option>
     <option value="western">Western</option>
