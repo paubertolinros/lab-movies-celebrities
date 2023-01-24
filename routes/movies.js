@@ -55,7 +55,7 @@ router.get('/edit/:movieId', async (req, res, next) => {
   const { movieId } = req.params;
   try {
     const movie = await Movie.findById(movieId).populate("cast")
-    const celebrity = await Celebrity.find({ movieId });
+    const celebrity = await Celebrity.find({});
     console.log('This is the movie:', movie)
     console.log('These are the celebreties:', celebrity)
     res.render('movies/edit-movie', { movie, celebrity })

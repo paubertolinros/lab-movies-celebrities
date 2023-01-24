@@ -18,7 +18,7 @@
   <label> Plot </label>
   <textarea name="plot" cols="30" rows="5" required>{{movie.plot}}</textarea>
   <label> Cast </label>
-  <select name="cast">
+  <select name="cast" multiple>
     {{#each celebrity}}
     <option value={{this._id}}>{{this.name}}</option>
     {{/each}}
